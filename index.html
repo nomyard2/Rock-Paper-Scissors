@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+
+function computerPlay() {
+    const choices = ['rock' , 'paper' , 'scissors'];
+    let choicesIndex = Math.floor(Math.random()* choices.length);
+    return choices[choicesIndex];
+}
+
+function playRound(playerSelection,computerSelection){
+    let player = prompt('Would you like rock, paper, or scissors');
+    let x = player.toLowerCase();
+    console.log(x)
+    let y = playRound();
+    if (x === y) {
+        return 'Tie'
+    } else if ( (x === 'paper' && y ==='scissors') ||  
+                (x === 'rock' && y ==='paper') || 
+                (x === 'scissors' && y ==='rock') )
+      {  return 'Lose' 
+    } else  ( (y === 'paper' && x ==='scissors') ||  
+                (y === 'rock' && x ==='paper') || 
+                (y === 'scissors' && x ==='rock') )
+        {return 'Win'
+    
+    }
+}
+
+function game() {
+    let player = 0;
+    let computer = 0;
+    for (let i=0; i<5 ; i++) {
+       if (playRound() === 'Win') {
+           player += 1
+       } else (playRound() === 'Lose') 
+           computer += 1
+       if (player === 5 ) {
+           alert("Goob Job")
+       } else if (computer === 5) {
+       alert(' Job')
+       }
+    }
+}
+
+game();
+   </script>
+
+</body>
+</html>
